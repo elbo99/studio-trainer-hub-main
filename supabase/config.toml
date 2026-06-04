@@ -1,0 +1,8 @@
+project_id = "bvswrxdxfqtdwbplycoy"
+
+[functions.delete-member]
+verify_jwt = false
+
+# Public REST API — uses its own Bearer token auth (API_BEARER_TOKEN)
+[functions.api]
+verify_jwt = false

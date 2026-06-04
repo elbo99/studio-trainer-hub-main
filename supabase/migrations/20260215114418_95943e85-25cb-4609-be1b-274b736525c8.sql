@@ -1,0 +1,1 @@
+ALTER TABLE public.tasks ADD COLUMN rest text DEFAULT NULL;

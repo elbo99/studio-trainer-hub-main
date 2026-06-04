@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Studio Gym 360 — Palette lumineuse premium */
+    /* Fond beige #EFEAE4 */
+    --background: 33 22% 92%;
+    /* Titres noirs */
+    --foreground: 0 0% 0%;
+
+    /* Cartes blanches */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Bleu clair #AECAE8 — boutons principaux */
+    --primary: 212 50% 80%;
+    /* Texte bleu foncé #48596B */
+    --primary-foreground: 212 20% 35%;
+
+    /* Boutons secondaires : fond blanc, texte bleu foncé */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 212 20% 35%;
+
+    /* Zones muted — beige légèrement plus profond */
+    --muted: 33 18% 88%;
+    /* Bleu moyen #7A90A8 — texte secondaire / icônes inactives */
+    --muted-foreground: 212 18% 57%;
+
+    /* Accent doux */
+    --accent: 33 30% 95%;
+    --accent-foreground: 212 20% 35%;
+
+    /* Vert Studio Gym #A2DB8A — validations / en avance */
+    --success: 104 55% 70%;
+    --success-foreground: 120 40% 18%;
+
+    /* Orange très doux — badges "en retard" */
+    --warning: 28 70% 78%;
+    --warning-foreground: 24 50% 25%;
+
+    --destructive: 0 55% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 33 15% 86%;
+    --input: 33 18% 90%;
+    /* Bleu clair pour focus rings */
+    --ring: 212 50% 75%;
+
+    --radius: 1.125rem;
+
+    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+    /* Ombres très légères pour cartes lumineuses */
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.03), 0 2px 8px hsl(0 0% 0% / 0.04);
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.04), 0 6px 20px hsl(0 0% 0% / 0.05);
+    --shadow-premium: 0 4px 24px hsl(0 0% 0% / 0.08);
+
+    /* Gradients signature — clairs */
+    --gradient-warm: linear-gradient(135deg, hsl(33 30% 97%), hsl(33 22% 90%));
+    --gradient-bronze: linear-gradient(135deg, hsl(28 30% 65%), hsl(28 26% 53%));
+    --gradient-night: linear-gradient(135deg, hsl(33 30% 97%), hsl(33 22% 92%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3 {
+    @apply text-foreground;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .font-serif-display {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-premium { box-shadow: var(--shadow-premium); }
+  .bg-gradient-warm { background-image: var(--gradient-warm); }
+  .bg-gradient-bronze { background-image: var(--gradient-bronze); }
+  .bg-gradient-night { background-image: var(--gradient-night); }
+}

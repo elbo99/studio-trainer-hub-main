@@ -1,0 +1,1 @@
+ALTER TABLE public.tasks ADD COLUMN coach_reply text DEFAULT NULL;

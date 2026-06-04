@@ -1,0 +1,1 @@
+ALTER TABLE public.tasks ADD COLUMN exercise_notes text DEFAULT NULL;

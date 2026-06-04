@@ -1,0 +1,1 @@
+ALTER TABLE public.coach_library_sessions ADD COLUMN IF NOT EXISTS cycle text;

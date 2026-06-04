@@ -1,0 +1,1 @@
+ALTER TABLE public.member_indicators ADD COLUMN IF NOT EXISTS current_weight numeric;
