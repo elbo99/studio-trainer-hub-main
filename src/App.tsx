@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import CoachDashboard from "./pages/CoachDashboard";
+import CoachAgenda from "./pages/CoachAgenda";
 import MemberDetail from "./pages/MemberDetail";
 import Progress from "./pages/Progress";
 import StudioWork from "./pages/StudioWork";
@@ -78,6 +79,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute allowedRoles={["coach"]}>
               <CoachDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/agenda"
+          element={
+            <ProtectedRoute allowedRoles={["coach"]}>
+              <CoachAgenda />
             </ProtectedRoute>
           }
         />
