@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointments: {
+        Row: {
+          coach_id: string
+          created_at: string
+          ends_at: string
+          id: string
+          member_id: string | null
+          notes: string | null
+          starts_at: string
+          status: string
+          title: string | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          coach_id: string
+          created_at?: string
+          ends_at: string
+          id?: string
+          member_id?: string | null
+          notes?: string | null
+          starts_at: string
+          status?: string
+          title?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          coach_id?: string
+          created_at?: string
+          ends_at?: string
+          id?: string
+          member_id?: string | null
+          notes?: string | null
+          starts_at?: string
+          status?: string
+          title?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_coach_id_fkey"
+            columns: ["coach_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "appointments_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       coach_library_assignments: {
         Row: {
           assigned_at: string

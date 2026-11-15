@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Home, User, Trophy, MessageCircle, Dumbbell, BookOpen, Activity } from "lucide-react";
+import { Home, User, Trophy, MessageCircle, Dumbbell, BookOpen, Activity, CalendarDays } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -19,6 +19,7 @@ const memberNavItems = [
 
 const coachNavItems = [
   { icon: Home, label: "Accueil", path: "/coach" },
+  { icon: CalendarDays, label: "Agenda", path: "/agenda" },
   { icon: BookOpen, label: "Biblio", path: "/library" },
   { icon: Dumbbell, label: "Studio", path: "/studio" },
   { icon: MessageCircle, label: "Messages", path: "/messages" },

@@ -162,51 +162,6 @@ export default function Dashboard() {
   }, [user]);
 
 
-  const loadTasks = async () => {
-    if (!user) return;
-    try {
-      const [data, objective, ind] = await Promise.all([
-        getMemberTasks(user.id, selectedWeek),
-        getWeeklyObjective(user.id, selectedWeek),
-        getMemberIndicators(user.id).catch(() => null),
-      ]);
-      setTasks(data);
-      setWeeklyObjective(objective);
-      setIndicators(ind);
-
-      // Load assigned program info (refetch from DB so realtime updates reflect immediately)
-      const { supabase } = await import("@/integrations/supabase/client");
-      const { data: prof } = await (supabase as any)
-        .from("profiles")
-        .select("onboarding_program_id")
-        .eq("id", user.id)
-        .maybeSingle();
-      const pid = prof?.onboarding_program_id;
-      if (pid) {
-        const { data: prog } = await (supabase as any)
-          .from("onboarding_programs")
-          .select("name, description")
-          .eq("id", pid)
-          .maybeSingle();
-        setAssignedProgram((prog as any) || null);
-      } else {
-        setAssignedProgram(null);
-      }
-
-
-      const multiFreqTaskIds = data.filter(t => (t.frequency ?? 1) >= 2).map(t => t.id);
-      if (multiFreqTaskIds.length > 0) {
-        const completions = await getDailyCompletions(multiFreqTaskIds, selectedWeek);
-        setDailyCompletions(completions);
-      } else {
-        setDailyCompletions([]);
-      }
-    } catch (error) {
-      console.error("Error loading tasks:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     if (!user || tasks.length === 0) return;
